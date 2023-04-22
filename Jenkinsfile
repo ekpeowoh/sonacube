@@ -6,7 +6,7 @@ pipeline {
   stages{
     stage('1-git-clone'){
       steps{
-        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'b48b6025-4625-4037-8d4b-f7c12674d945', url: 'https://github.com/ekpeowoh/sonacube.git']])
+       checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'b48b6025-4625-4037-8d4b-f7c12674d945', url: 'https://github.com/ekpeowoh/sonacube.git']])
       }
     }
     stage('2-cleanws'){
@@ -26,7 +26,7 @@ pipeline {
     }
     stage('codequality'){
         steps{
-       sh 'mvn clean verify sonar:sonar \
+       sh 'mvn clean verify sonar:sonar\
   -Dsonar.projectKey=team5codereview \
   -Dsonar.projectName='team5codereview' \
   -Dsonar.host.url=http://ec2-52-91-245-107.compute-1.amazonaws.com:9000 \
