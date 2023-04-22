@@ -6,7 +6,7 @@ pipeline {
   stages{
     stage('1-git-clone'){
       steps{
-       checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'b48b6025-4625-4037-8d4b-f7c12674d945', url: 'https://github.com/ekpeowoh/sonacube.git']])
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-id', url: 'https://github.com/etechDevops/etech-mavenApp.git']]])
       }
     }
     stage('2-cleanws'){
